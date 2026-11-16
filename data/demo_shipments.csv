@@ -1,0 +1,25 @@
+Container Number,Vessel Name,BL Number,Shipping Line,Delivery Status,Arrival Date,Delivery Deadline,Delivery Date,RFC Status,Return Status,Return Date
+DEMO0000001,Demo Meridian,DEMO-BL-001,Demo Line A,Delivered,2026-11-02,2026-11-10,2026-11-07,Complete,Returned,2026-11-09
+DEMO0000002,Demo Meridian,DEMO-BL-001,Demo Line A,Delivered,2026-11-02,2026-11-11,2026-11-08,Complete,Not returned,
+DEMO0000003,Demo Meridian,DEMO-BL-001,Demo Line A,Delivered,2026-11-02,2026-11-12,2026-11-09,Complete,Returned,2026-11-11
+DEMO0000004,Demo Meridian,DEMO-BL-001,Demo Line A,Delivered,2026-11-02,2026-11-13,2026-11-07,Complete,Not returned,
+DEMO0000005,Demo Meridian,DEMO-BL-001,Demo Line A,Delivered,2026-11-02,2026-11-14,2026-11-08,Complete,Returned,2026-11-10
+DEMO0000006,Demo Meridian,DEMO-BL-001,Demo Line A,Pending,2026-11-02,2026-11-15,,Pending,Not returned,
+DEMO0000007,Demo Meridian,DEMO-BL-001,Demo Line A,Pending,2026-11-02,2026-11-16,,Pending,Not returned,
+DEMO0000008,Demo Meridian,DEMO-BL-001,Demo Line A,Pending,2026-11-02,2026-11-17,,Pending,Not returned,
+DEMO0000009,Demo Horizon,DEMO-BL-002,Demo Line B,Delivered,2026-11-05,2026-11-10,2026-11-12,Complete,Returned,2026-11-14
+DEMO0000010,Demo Horizon,DEMO-BL-002,Demo Line B,Delivered,2026-11-05,2026-11-11,2026-11-10,Complete,Not returned,
+DEMO0000011,Demo Horizon,DEMO-BL-002,Demo Line B,Delivered,2026-11-05,2026-11-12,2026-11-11,Complete,Returned,2026-11-13
+DEMO0000012,Demo Horizon,DEMO-BL-002,Demo Line B,Delivered,2026-11-05,2026-11-13,2026-11-12,Complete,Not returned,
+DEMO0000013,Demo Horizon,DEMO-BL-002,Demo Line B,Delivered,2026-11-05,2026-11-14,2026-11-10,Complete,Returned,2026-11-12
+DEMO0000014,Demo Horizon,DEMO-BL-002,Demo Line B,Pending,2026-11-05,2026-11-15,,Pending,Not returned,
+DEMO0000015,Demo Horizon,DEMO-BL-002,Demo Line B,Pending,2026-11-05,2026-11-16,,Pending,Not returned,
+DEMO0000016,Demo Horizon,DEMO-BL-002,Demo Line B,Pending,2026-11-05,2026-11-17,,Pending,Not returned,
+DEMO0000017,Demo Pacific,DEMO-BL-003,Demo Line A,Delivered,2026-11-08,2026-11-10,2026-11-14,Complete,Returned,2026-11-16
+DEMO0000018,Demo Pacific,DEMO-BL-003,Demo Line A,Delivered,2026-11-08,2026-11-11,2026-11-15,Complete,Not returned,
+DEMO0000019,Demo Pacific,DEMO-BL-003,Demo Line A,Delivered,2026-11-08,2026-11-12,2026-11-13,Complete,Returned,2026-11-15
+DEMO0000020,Demo Pacific,DEMO-BL-003,Demo Line A,Delivered,2026-11-08,2026-11-13,2026-11-14,Complete,Not returned,
+DEMO0000021,Demo Pacific,DEMO-BL-003,Demo Line A,Delivered,2026-11-08,2026-11-14,2026-11-15,Complete,Returned,2026-11-17
+DEMO0000022,Demo Pacific,DEMO-BL-003,Demo Line A,Pending,2026-11-08,2026-11-15,,Pending,Not returned,
+DEMO0000023,Demo Pacific,DEMO-BL-003,Demo Line A,Pending,2026-11-08,2026-11-16,,Pending,Not returned,
+DEMO0000024,Demo Pacific,DEMO-BL-003,Demo Line A,Pending,2026-11-08,2026-11-17,,Pending,Not returned,

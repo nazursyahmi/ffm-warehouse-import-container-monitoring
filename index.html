@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="description" content="FFM Logistics offline import container monitoring dashboard">
+    <title>FFM Logistics · Import Monitoring</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/dashboard.css">
+    <script src="assets/plotly.min.js" defer></script>
+    <script src="assets/dashboard-core.js" defer></script>
+    <script src="assets/workbook.js" defer></script>
+    <script src="assets/demo-data.js" defer></script>
+    <script src="assets/motion.js" defer></script>
+    <script src="assets/dashboard.js" defer></script>
+</head>
+<body>
+    <svg class="icon-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-box" viewBox="0 0 24 24"><path d="m3 6 9-4 9 4v12l-9 4-9-4Z M3 6l9 4 9-4M12 10v12M7 4l10 4"/></symbol>
+        <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M3 3v18h18M7 17v-5m5 5V7m5 10V4"/></symbol>
+        <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+        <symbol id="icon-route" viewBox="0 0 24 24"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><path d="M8 5h7a4 4 0 0 1 0 8H9a4 4 0 0 0 0 8h7"/></symbol>
+        <symbol id="icon-compare" viewBox="0 0 24 24"><path d="M4 7h16l-4-4m4 4-4 4M20 17H4l4 4m-4-4 4-4"/></symbol>
+        <symbol id="icon-alert" viewBox="0 0 24 24"><path d="m12 3 10 18H2Z M12 9v5m0 3v1"/></symbol>
+        <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/></symbol>
+        <symbol id="icon-ship" viewBox="0 0 24 24"><path d="M4 11V5h16v6M12 2v3M2 13l10-3 10 3-4 7H6ZM12 10v10M2 22l4-2 6 2 6-2 4 2"/></symbol>
+        <symbol id="icon-truck" viewBox="0 0 24 24"><path d="M2 5h12v13H2ZM14 10h5l3 4v4h-8M18 10v5h4"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m7 12 3 3 7-7"/></symbol>
+        <symbol id="icon-filter" viewBox="0 0 24 24"><path d="M3 4h18l-7 8v7l-4 2v-9Z"/></symbol>
+        <symbol id="icon-upload" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M3 15v6h18v-6"/></symbol>
+        <symbol id="icon-settings" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="16" cy="17" r="3"/></symbol>
+        <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M3 5h18M3 12h18M3 19h18"/></symbol>
+        <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M3 17v4h18v-4"/></symbol>
+    </svg>
+    <a class="skip-link" href="#workspace">Skip navigation</a>
+    <button id="sidebar-scrim" class="sidebar-scrim" aria-label="Close navigation" hidden></button>
+    <aside id="sidebar" class="sidebar" aria-label="Main navigation">
+        <a href="#container-monitoring" class="brand" aria-label="FFM Logistics home"><span class="brand-mark"><svg class="icon"><use href="#icon-box"/></svg></span><span>FFM<span class="brand-subtitle">LOGISTICS</span></span></a>
+        <div class="nav-label">OPERATIONS WORKSPACE</div>
+        <nav id="page-navigation"></nav>
+        <div class="sidebar-bottom">
+            <div class="local-indicator"><span class="status-dot"></span> Offline workspace</div>
+            <p>Your files stay in this browser tab.</p>
+            <button class="btn btn-primary full-width" data-action="open-import"><svg class="icon"><use href="#icon-upload"/></svg> Import shipments</button>
+            <button class="btn btn-secondary full-width" data-action="open-settings"><svg class="icon"><use href="#icon-settings"/></svg> Rules & alerts</button>
+        </div>
+    </aside>
+    <div class="workspace-shell">
+        <header class="topbar">
+            <div class="topbar-left"><button id="menu-button" class="btn icon-button mobile-menu" aria-label="Open navigation" aria-expanded="false"><svg class="icon"><use href="#icon-menu"/></svg></button><span class="breadcrumb">FFM LOGISTICS <span>/</span> IMPORT OPERATIONS</span></div>
+            <div class="topbar-actions"><span class="offline-badge">LOCAL · OFFLINE</span><button id="regenerate-demo" class="btn btn-secondary" data-action="regenerate-demo">Randomize demo</button><button class="btn btn-secondary" data-action="open-import"><svg class="icon"><use href="#icon-upload"/></svg><span>Import data</span></button></div>
+        </header>
+        <main id="workspace" tabindex="-1">
+            <div class="page-heading"><div><p class="eyebrow">IMPORT CONTAINER MONITORING</p><h1 id="page-title">Container Monitoring</h1><p id="page-description">Shipment visibility. Clear priorities. Better decisions.</p></div><span id="source-badge" class="badge badge-warning">DEMO DATA</span></div>
+            <div id="freshness" class="freshness"></div>
+            <div class="indicator-legend" aria-label="Indicator meanings">
+                <span class="text-success">● Okay</span>
+                <span class="text-warning">● Warning</span>
+                <span class="text-danger">● Danger</span>
+                <span class="indicator-unknown">● Unknown</span>
+            </div>
+            <section class="panel filter-panel" aria-label="Global filters">
+                <div class="panel-heading"><h2><svg class="icon"><use href="#icon-filter"/></svg> Global filters</h2><div class="toolbar"><span id="match-count"></span><button id="reset-filters" class="btn btn-quiet">Reset filters</button><button id="toggle-filters" class="btn btn-secondary" aria-expanded="true" aria-controls="global-filters">Hide filters</button></div></div>
+                <div id="global-filters"></div>
+            </section>
+            <div id="page-content" aria-live="polite"></div>
+            <footer>FFM Logistics <span>·</span> Data stays local <span>·</span> <button class="text-button" data-action="open-rules">Calculation rules</button></footer>
+        </main>
+    </div>
+    <dialog id="import-dialog" class="dialog dialog-wide" aria-labelledby="import-title">
+        <div class="dialog-heading"><div><p class="eyebrow">DATA MANAGEMENT</p><h2 id="import-title">Import & validate shipments</h2></div><button class="btn btn-secondary" data-close="import-dialog" aria-label="Close import window">Close</button></div>
+        <div class="dialog-body"><div class="upload-zone"><svg class="icon"><use href="#icon-upload"/></svg><h3>Select a shipment file</h3><p>UTF-8 CSV or standard XLSX · Maximum 20 MB · No upload to a server</p><input id="file-input" type="file" accept=".csv,.xlsx" aria-label="Choose CSV or Excel file"><button class="btn btn-secondary" id="use-demo">Use demo data</button></div><div id="import-status" role="status"></div><div id="import-workspace"></div></div>
+    </dialog>
+    <dialog id="settings-dialog" class="dialog" aria-labelledby="settings-title"><div class="dialog-heading"><h2 id="settings-title">Calculation & alert settings</h2><button class="btn btn-secondary" data-close="settings-dialog">Close</button></div><div id="settings-content" class="dialog-body"></div></dialog>
+    <dialog id="detail-dialog" class="dialog" aria-labelledby="detail-title"><div class="dialog-heading"><h2 id="detail-title">Container details</h2><button class="btn btn-secondary" data-close="detail-dialog">Close</button></div><div id="detail-content" class="dialog-body"></div></dialog>
+    <dialog id="rules-dialog" class="dialog" aria-labelledby="rules-title"><div class="dialog-heading"><h2 id="rules-title">Calculation rules</h2><button class="btn btn-secondary" data-close="rules-dialog">Close</button></div><div class="dialog-body rules-copy"><h3>One container per BL / container pair</h3><p>All duplicate pairs and invalid rows are quarantined before activation. Delivered and Pending use your explicit status mapping; other statuses are Unknown. Delivery rate = delivered ÷ total.</p><h3>Delivery targets</h3><p>Overdue = Pending with a target before the assessment date. Approaching includes today through the configured warning window. Missing targets have unknown risk.</p><h3>Lead time & delays</h3><p>Lead time = actual Delivery Date minus the chosen actual start date, in calendar days, for Delivered containers. Delay = actual delivery minus target for Delivered, or assessment date minus target for Pending, with a minimum of zero. Missing dates are unavailable.</p><h3>DEM / DET</h3><p>Explicit deadlines take priority. An optional confirmed rule uses start + free calendar days, excluding the start day. DEM stops at gate out; DET stops at empty return. Missing stops require an explicit open-state assumption. Future or contradictory events cannot establish charge exposure.</p><p>Estimates require confirmed flat daily rates and a currency. Charge days = maximum of zero and end minus deadline. Currencies stay separate. Tiered, combined, business-day and inclusive-start contracts are not inferred.</p><h3>Source & privacy</h3><p>Only valid rows feed the dashboard. Source values remain available in container details. Dates are calendar dates; Excel times are ignored in analytics. Changing assessment date does not reconstruct historical source statuses. Files and filters last only while this tab is open. Nothing is sent to a server or saved to browser storage.</p></div></dialog>
+    <div id="toast" class="toast-message" role="status" hidden></div>
+    <div id="busy" class="busy-overlay" role="status" hidden><div class="busy-card"><div class="spinner"></div><p id="busy-message">Processing locally…</p></div></div>
+    <noscript><div class="no-script">Enable JavaScript to use this offline dashboard. No internet connection is required.</div></noscript>
+</body>
+</html>
